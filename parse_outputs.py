@@ -13,7 +13,7 @@ def main():
                          help = (
                                   "Floating-point threshold for a binding to be considered "
                                   "weak. Anything less than this value will be considered a weak "
-                                  "binding. [0, 0.2) "
+                                  "binding. (0.5, 0.2] "
                                 )
                        )
     parser.add_argument( '-s', '--strong',
@@ -21,7 +21,7 @@ def main():
                                   "Floating-point threshold for a binding to be considered "
                                   "strong. Anything less than this, but greater than --weak "
                                   "will be considered a strong binding. "
-                                  "[0.2,0.5)"
+                                  "(0, 0.2)"
                                 )
                        )
     parser.add_argument( '-o', '--output', default = "output.txt",
