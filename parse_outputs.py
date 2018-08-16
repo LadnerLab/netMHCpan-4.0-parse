@@ -24,11 +24,22 @@ def main():
                                   "[0.2,0.5)"
                                 )
                        )
+    parser.add_argument( '-o', '--output', default = "output.txt",
+                         help = "File to write tab-delimited output to"
+                       )
+    parser.add_argument( '-v', '--verbose', default = False,
+                         action = "store_true",
+                         help = "Flag for output to be written to STDOUT as well as output file"
+                       )
+                         
 
     args = parser.parse_args()
 
+    HEADER = "Pep-len\tAllele\tTotal\t#SB\t#WB\n" 
+
     output_parser = BindingOutputParser( args.in_file )
     output_parser.read_file()
+
     if not output_parser.file_found():
         print( "ERROR: %s was either unable to be found or opened, exiting" % output_parser.get_file_name() )
         sys.exit( 1 )
@@ -39,9 +50,18 @@ def main():
         current_allele.set_strong_binding_thresh( float( args.strong ) )
     
 
-    print( "Pep-len\tAllele\tTotal\t#SB\t#WB" )
+    out_file = open( args.output, 'w' )
+    out_file.write( HEADER )
+
+    if args.verbose:
+        print( HEADER )
+
     for current_allele in allele_info:
-        print( str( current_allele ) )
+        out_file.write( str( current_allele ) + '\n'  )
+        if args.verbose:
+            print( str( current_allele ) )
+
+    out_file.close()
 
 class AlleleInfo:
     def __init__( self, name, weak_binding_thresh = 0, strong_binding_thresh = 0 ):
