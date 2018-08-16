@@ -2,7 +2,7 @@
 Parses output produced by netMHCpan-4.0, and stores it in an easy to read tab-delimited file.
 
 ### Dependencies
-None!
+Python >= 3.4
 
 ### Input
 1. xls file created by netMHCpan-4.0
