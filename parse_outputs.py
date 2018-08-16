@@ -249,6 +249,7 @@ class BindingOutputParser:
         line_split = line_to_parse.split()
         output = list()
         num_alleles = len( self._alleles_from_file )
+        num_cols_per_allele = 5
 
         for current in range( num_alleles ):
             current_list = list()
@@ -256,11 +257,11 @@ class BindingOutputParser:
             current_list.append( line_split[ 1 ] )
             current_list.append( line_split[ 2 ] )
 
-            current_list.append( line_split[ ( current * 5 ) + 3 ] )
-            current_list.append( line_split[ ( current * 5 ) + 4 ] )
-            current_list.append( line_split[ ( current * 5 ) + 5 ] )
-            current_list.append( line_split[ ( current * 5 ) + 6 ] )
-            current_list.append( line_split[ ( current * 5 ) + 7 ] )
+            current_list.append( line_split[ ( current * num_cols_per_allele ) + 3 ] )
+            current_list.append( line_split[ ( current * num_cols_per_allele ) + 4 ] )
+            current_list.append( line_split[ ( current * num_cols_per_allele ) + 5 ] )
+            current_list.append( line_split[ ( current * num_cols_per_allele ) + 6 ] )
+            current_list.append( line_split[ ( current * num_cols_per_allele ) + 7 ] )
 
             output.append( current_list )
         return output
