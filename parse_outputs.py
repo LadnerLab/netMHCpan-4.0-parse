@@ -54,7 +54,8 @@ def main():
     out_file.write( HEADER )
 
     if args.verbose:
-        print( HEADER )
+        # Don't print a newline 
+        print( HEADER[ :-1: ] )
 
     for current_allele in allele_info:
         out_file.write( str( current_allele ) + '\n'  )
