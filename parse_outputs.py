@@ -13,13 +13,14 @@ def main():
                          help = (
                                   "Floating-point threshold for a binding to be considered "
                                   "weak. Anything less than this value will be considered a weak "
-                                  "binding. (0.5, 0.2] "
+                                  "binding if it is also greater than or equal "
+                                  "the strong threshold. (0.5, 0.2] "
                                 )
                        )
     parser.add_argument( '-s', '--strong',
                          help = (
                                   "Floating-point threshold for a binding to be considered "
-                                  "strong. Anything less than this, but greater than --weak "
+                                  "strong. Anything less than this, "
                                   "will be considered a strong binding. "
                                   "(0, 0.2)"
                                 )

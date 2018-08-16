@@ -50,12 +50,12 @@ optional arguments:
                         Output file produced by netMHCpan-4.0 to parse
   -w WEAK, --weak WEAK  Floating-point threshold for a binding to be
                         considered weak. Anything less than this value will be
-                        considered a weak binding. (0.5, 2.0]
+                        considered a weak binding if it is also greater than
+                        or equal the strong threshold. (0.5, 0.2]
   -s STRONG, --strong STRONG
                         Floating-point threshold for a binding to be
-                        considered strong. Anything less than this, but
-                        greater than --weak will be considered a strong
-                        binding. (0, 0.2)
+                        considered strong. Anything less than this, will be
+                        considered a strong binding. (0, 0.2)
   -o OUTPUT, --output OUTPUT
                         File to write tab-delimited output to
   -v, --verbose         Flag for output to be written to STDOUT as well as
